@@ -10,13 +10,24 @@ module.exports = {
    * Puppeteer launch options
    */
   launch: {
+    args: [
+      /**
+       * Prevent empty Chrome startup window
+       * Tests use their own `browser.newPage()` instead
+       */
+      '--no-startup-window'
+    ],
+
     /**
      * Allow headless mode switching using `HEADLESS=false`
      * but default to `new` to skip deprecation warning
      *
      * {@link https://developer.chrome.com/articles/new-headless/}
      */
-    headless: process.env.HEADLESS !== 'false' ? 'new' : false
+    headless: process.env.HEADLESS !== 'false' ? 'new' : false,
+
+    // See launch arg '--no-startup-window'
+    waitForInitialPage: false
   },
 
   /**
@@ -25,6 +36,9 @@ module.exports = {
   server: {
     command: 'npm run serve',
     port: ports.preview,
+
+    // Allow 30 seconds to start server
+    launchTimeout: 30000,
 
     // Skip when already running
     usedPortAction: 'ignore'
