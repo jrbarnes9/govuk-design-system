@@ -14,6 +14,8 @@ Help users to create and enter secure and memorable passwords.
 
 You should follow this pattern whenever you need users to create or enter a password. Before using this pattern, you should also read the guidance on [user accounts](/patterns/create-accounts/).
 
+For technical considerations, you may also want to read the guidance for the [password input](/components/password-input/) component.
+
 ## How it works
 
 When using passwords in your service, you should:
@@ -58,28 +60,6 @@ If a user enters their account details incorrectly, do not reveal whether they g
 Revealing the source of the error can help fraudsters break into people’s accounts.
 
 Give users between 5 and 10 attempts to enter their password correctly before you lock their account or do any further security checks.
-
-### Hide passwords by default
-
-Users might be in a public space when entering or creating a password, so you should hide passwords by default.
-
-To help users meet your password constraints and prevent mistyped passwords, you can:
-
-- let them see their password if they want to
-- show the last typed character of their password
-- make them enter their password twice and automatically compare them
-
-#### Showing and hiding passwords
-
-It's common for services to help users type passwords with a '[show password](https://github.com/alphagov/govuk-design-system-backlog/issues/240)' button to let users see their password if they want to.
-
-When there are two or more password fields on a page, the 'show' and 'hide' labels for each password input must be different.
-
-For example, you can label the input "Password" as "show password" and label the second input "Re-enter password" as "show re-entered password".
-
-### Allow users to paste their password
-
-Do not disable paste on password fields. People may have very good reasons why they want to paste their password, for example if they’re using a password manager.
 
 ### Help users who forget their password
 
